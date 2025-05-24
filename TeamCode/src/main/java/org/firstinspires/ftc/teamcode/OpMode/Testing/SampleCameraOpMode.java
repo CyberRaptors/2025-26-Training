@@ -7,12 +7,14 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.BuiltinCameraDirection;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.util.OpenCV.Pipelines.firstPipline;
 import org.firstinspires.ftc.vision.VisionPortal;
 
 @Autonomous(name="Vision Test")
 public class SampleCameraOpMode extends LinearOpMode {
 
     private VisionPortal portal;
+    private firstPipline redPropThreshold;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -25,5 +27,7 @@ public class SampleCameraOpMode extends LinearOpMode {
 
 
         waitForStart();
+        telemetry.addData("Prop Position", redPropThreshold.getPropPosition());
+        telemetry.update();                        //Will output prop position on Driver Station Console
     }
 }

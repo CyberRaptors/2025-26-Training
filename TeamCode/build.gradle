@@ -22,19 +22,26 @@ android {
         jniLibs.useLegacyPackaging true
     }
 }
-
 repositories {
+    maven {
+        url = 'https://maven.brott.dev/'
+    }
     maven {
         url "https://repo.dairy.foundation/releases"
     }
 }
-
 dependencies {
     implementation project(':FtcRobotController')
+    implementation "com.acmerobotics.roadrunner:ftc:0.1.15"
+    implementation "com.acmerobotics.roadrunner:core:1.0.1"
+    implementation "com.acmerobotics.roadrunner:actions:1.0.1"
+    implementation "com.acmerobotics.dashboard:dashboard:0.4.16"
+    implementation 'org.ftclib.ftclib:core:2.1.1' // core
     implementation "dev.frozenmilk.dairy:Util:1.1.0"
     implementation "dev.frozenmilk.dairy:Core:1.0.1"
-    implementation "dev.frozenmilk.mercurial:Mercurial:1.0.3"
-    implementation "dev.frozenmilk.dairy:Pasteurized:1.0.0"
-    implementation 'org.ftclib.ftclib:core:2.1.1'
-    implementation 'androidx.annotation:annotation-jvm:1.9.1'// core
+    implementation "dev.frozenmilk.mercurial:Mercurial:1.0.2"
+    annotationProcessor files('lib/OpModeAnnotationProcessor.jar')
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.7'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.21'
 }
